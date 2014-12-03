@@ -6,6 +6,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//Lets test if i can have v.01 work
+	//Now lets test if i have to republish
 	return 0;
 }
 
