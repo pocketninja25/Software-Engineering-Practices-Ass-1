@@ -6,6 +6,9 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	char bar = '6';
+	bar++;
 	return 0;
 }
 
