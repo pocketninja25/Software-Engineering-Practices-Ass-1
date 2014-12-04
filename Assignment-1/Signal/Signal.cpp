@@ -35,3 +35,24 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 	inp.close();
+
+	int result;
+
+	result = Process(theMeasurements, numMeasurements, "amplify", "3");
+	if (result != Success){
+		cout << "Filter failed with error code: " << result << endl;
+	}
+	else {
+		outp.open(outFileName);
+		for (int i = 0; i < numMeasurements; i++)
+		{
+			outp << theMeasurements[i].theTime << " " << theMeasurements[i].theReading << endl;
+		}
+		outp.close();
+	}
+	cout << endl << endl;
+
+	system("pause");
+	return 0;
+}
+
