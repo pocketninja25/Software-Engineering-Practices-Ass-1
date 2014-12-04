@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 const int Success = 0;
 const int FilterNotFound = 103; // can't find dll for the filter
 const int FilterInvalidFormat = 105; // Unable to find function in the dll

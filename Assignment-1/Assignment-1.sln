@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Signal", "Signal\Signal.vcxproj", "{B9A61967-8605-4F4C-8896-5C51411B2652}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "useFilter", "useFilter\useFilter.vcxproj", "{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{B9A61967-8605-4F4C-8896-5C51411B2652}.Debug|Win32.Build.0 = Debug|Win32
 		{B9A61967-8605-4F4C-8896-5C51411B2652}.Release|Win32.ActiveCfg = Release|Win32
 		{B9A61967-8605-4F4C-8896-5C51411B2652}.Release|Win32.Build.0 = Release|Win32
+		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Debug|Win32.Build.0 = Debug|Win32
+		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Release|Win32.ActiveCfg = Release|Win32
+		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
