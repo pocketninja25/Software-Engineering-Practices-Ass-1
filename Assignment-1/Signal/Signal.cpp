@@ -37,7 +37,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	inp.close();
 
 	int result;
-
+	
 	result = Process(theMeasurements, numMeasurements, TEXT("amplify"), TEXT("3"));
 	if (result != Success){
 		cout << "Filter failed with error code: " << result << endl;

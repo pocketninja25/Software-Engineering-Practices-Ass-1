@@ -1,4 +1,9 @@
+#ifndef FILTERTYPES_H
+#define FILTERTYPES_H
+
 #include "stdafx.h"
+#include <tchar.h>
+
 
 const int Success = 0;
 const int FilterNotFound = 103; // can't find dll for the filter
@@ -13,3 +18,8 @@ public:
 	double theTime;
 	double theReading;
 };
+
+typedef int(*Filter)(Measurement*, int, TCHAR*);
+typedef int(*Compare)(const void*, const void*);	//Return < 0 if p1 < p2, 0 if p1 == p2, > 0 if p1 > 0
+
+#endif
