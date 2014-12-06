@@ -54,42 +54,46 @@ int Process(Measurement measurements[], int size, TCHAR* filterName, TCHAR* para
 
 }
 
-void Swap(void* value1, void* &measurement2, int itemSize)
+void Swap(Measurement &measurement1, Measurement &measurement2)
 {
-	char hold;
+	Measurement hold;
 
-	for (int i = 0; i < itemSize; i++)	//Count through bytes of data items
-	{
-		hold = *(static_cast<char*> (value1)+i));		//Convert void pointer to char pointer to perform pointer arithmetic per byte then store value at pointer address in hold variable
-		*(static_cast<char*> (value1)+i)) = *(static_cast<char*> (measurement2)+i));	//Set value at 
-		*(static_cast<char*> (measurement2)+i)) = hold;
-	}
+	hold = measurement1;
+	measurement1 = measurement2;
+	measurement2 = hold;
+	
+}
 
-	void Sort(void* base, int num, int size, Compare compareFunc)
+void Sort(Measurement measurements[], int size, Compare compareFunction)
+{
+	bool swapped;
+	do
 	{
-		char* incBase = static_cast<char*> (base);		//Convert pointer to char so can increment the pointer's value - char is 1 byte
-		bool swapped;
-		do
+		swapped = false;	//Have values been swapped this pass
+		size--;				//Adjust the end of the sort so already sorted values are not touched. Also reduces size to mark the end of the list
+
+		for (int i = 0; i < size; i++)	//Count through unsorted array
 		{
-			swapped = false;	//Have values been swapped this pass
-			num--;		//Adjust the end of the sort so already sorted values are not touched 
-			//also reduces size to mark the end of the list
+			//If pair is out of order
 
-			for (int i = 0; i < size; i++)	//Count through unsorted array
+			if (compareFunction(&measurements[i], &measurements[i + 1]) > 0)	//If the measurements are not ordered
 			{
-				//If pair is out of order
+				//Swap pair and note that a swap has occured
+				Swap(measurements[i], measurements[i + 1]);
+				swapped = true;
+			} //End of if statement
+		} //End of for loop
 
-				//Use casting to convert base pointer to char to do mathematics to find the elements of the array based on size and position of the elements
-				if (compareFunc(static_cast<void*>(static_cast<char*>(base)+(i       * size)),	//basepointer + (arrayposition * sizeofelement) gives the address of the arrayposition-th item
-					static_cast<void*>(static_cast<char*>(base)+((i + 1) * size))
-					) > 0)																	//simplified - if (compareFunc(array[i], array[i + 1]))  > 0) //Items Need swapping
-				{
-					//Swap pair and note that a swap has occured
-					Swap(measurements[i], measurements[i + 1]);
-					swapped = true;
-				} //End of if statement
-			} //End of for loop
+	} while (swapped);
 
-		} while (swapped);
+}	//End of sort function
 
-	}	//End of sort function
+
+int CompareTimeAsc(const Measurement* item1, const Measurement* item2)
+{
+	return item1->theTime - item2->theTime;
+}
+int CompareTimeDesc(const Measurement* item1, const Measurement* item2)
+{
+	return item2->theTime - item1->theTime;
+}

@@ -1,25 +1,16 @@
-#ifndef FILTERTYPES_H
-#define FILTERTYPES_H
+#ifndef USEFILTER_H
+#define USEFILTER_H
 
 #include "stdafx.h"
-#include <tchar.h>
+#include "filtertypes.h"
+#include <Windows.h>
+#include <stdio.h>
 
+int Process(Measurement measurements[], int size, TCHAR * filterName, TCHAR * parameter);
 
-const int Success = 0;
-const int FilterNotFound = 103; // can't find dll for the filter
-const int FilterInvalidFormat = 105; // Unable to find function in the dll
-const int UnknownError = 107;
+void Sort(Measurement measurements[], int size, Compare compareFunction);
 
-const int NAMESIZE = 20; // one more than the maximum number of filter (dll) name
-const int MAXMEASUREMENTS = 1000;  // the maximum size of the array of MEASUREMENTS
+int CompareTimeAsc(const Measurement* item1, const Measurement* item2);
+int CompareTimeDesc(const Measurement* item1, const Measurement* item2);
 
-class Measurement {
-public:
-	double theTime;
-	double theReading;
-};
-
-typedef int(*Filter)(Measurement*, int, TCHAR*);
-typedef int(*Compare)(const void*, const void*);	//Return < 0 if p1 < p2, 0 if p1 == p2, > 0 if p1 > 0
-
-#endif
+#endif+
