@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Signal", "Signal\Signal.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "useFilter", "useFilter\useFilter.vcxproj", "{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clip", "clip\clip.vcxproj", "{865793C8-72E4-4B23-9F9A-2D4A9F8BEA9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Debug|Win32.Build.0 = Debug|Win32
 		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Release|Win32.ActiveCfg = Release|Win32
 		{1E1456C3-E80D-48EF-9BD9-BC62AAE11DE1}.Release|Win32.Build.0 = Release|Win32
+		{865793C8-72E4-4B23-9F9A-2D4A9F8BEA9A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{865793C8-72E4-4B23-9F9A-2D4A9F8BEA9A}.Debug|Win32.Build.0 = Debug|Win32
+		{865793C8-72E4-4B23-9F9A-2D4A9F8BEA9A}.Release|Win32.ActiveCfg = Release|Win32
+		{865793C8-72E4-4B23-9F9A-2D4A9F8BEA9A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

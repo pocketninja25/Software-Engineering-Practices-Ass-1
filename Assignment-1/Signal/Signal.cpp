@@ -10,18 +10,26 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	ifstream inp;
-	ofstream outp;
+	ifstream inp;											//file input stream
+	ofstream outp;											//file output stream
 	char dummy[100];
 
-	cout << "program starting" << endl;
+	cout << "program starting" << endl << endl;
 
 	Measurement theMeasurements[MAXMEASUREMENTS];
-	int numMeasurements = 0;
+	int numMeasurements = 0;								//Running count of loaded measurements
 
-	char * inFileName = "..\\Debug\\measurements.txt"; // Change "Debug" for release mode
-	char * outFileName = "..\\Debug\\measurementsout.txt"; // Change "Debug" for release mode
+#ifdef _DEBUG
+	//Use Debug folder for debug version
+	char * inFileName = "..\\Debug\\measurements.txt";		
+	char * outFileName = "..\\Debug\\measurementsout.txt";	
+#else
+	//Use Release folder for release version
+	char * inFileName = "..\\Release\\measurements.txt";	
+	char * outFileName = "..\\Release\\measurementsout.txt";
+#endif
 
+	/*Read in measurements from file*/
 	inp.open(inFileName);
 	while (inp && numMeasurements < MAXMEASUREMENTS)
 	{
@@ -35,23 +43,42 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 	inp.close();
+	/*End of file read-in*/
 
-	int result;
-
-	//Sort(theMeasurements, numMeasurements, CompareTimeAsc);
-	result = Process(theMeasurements, numMeasurements, TEXT("amplify"), TEXT("3"));
-	if (result != Success){
-		cout << "Filter failed with error code: " << result << endl;
+	//Output read-in values to screen
+	cout << "Original:" << endl;
+	for (int i = 0; i < numMeasurements; i++)
+	{
+		cout << "Time: " << theMeasurements[i].theTime <<
+			" " << "Reading: " << theMeasurements[i].theReading << endl; //Output to screen
 	}
-	else {
+	cout << endl;
+
+	int result;		//Code returned by filter
+
+	//Sort(theMeasurements, numMeasurements, CompareTimeAsc);	//Sort file in ascending order based on time
+
+	result = Process(theMeasurements, numMeasurements, TEXT("clip"), TEXT("76"));	//Call the filter handler function to appy the filter
+	if (result != Success)
+	{
+		cout << "Filter failed with error code: " << result << endl;	//Report error code returned by process
+	}
+	else	//Output 
+	{
 		outp.open(outFileName);
+		cout << "Filtered: " << endl;
 		for (int i = 0; i < numMeasurements; i++)
 		{
+			//Output to file
 			outp << theMeasurements[i].theTime << " " << theMeasurements[i].theReading << endl;
+			//Output to screen
+			cout << "Time: " << theMeasurements[i].theTime << 
+				" " << "Reading: " << theMeasurements[i].theReading << endl; 
+
 		}
 		outp.close();
 	}
-	cout << endl << endl;
+	cout << endl;
 
 	system("pause");
 	return 0;

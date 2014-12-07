@@ -6,7 +6,7 @@ int Process(Measurement measurements[], int size, TCHAR* filterName, TCHAR* para
 {
 	HINSTANCE hinstLib;
 	Filter FilterProc;			//Function pointer to filter function
-	BOOL fFreeResult, fRunTimeLinkSuccess, fLibFound = FALSE;
+	BOOL fFreeResult = FALSE, fRunTimeLinkSuccess = FALSE, fLibFound = FALSE;
 	int errorCode = Success;
 
 	//Get handle to DLL
@@ -91,9 +91,9 @@ void Sort(Measurement measurements[], int size, Compare compareFunction)
 
 int CompareTimeAsc(const Measurement* item1, const Measurement* item2)
 {
-	return item1->theTime - item2->theTime;
+	return static_cast<int>(item1->theTime - item2->theTime);
 }
 int CompareTimeDesc(const Measurement* item1, const Measurement* item2)
 {
-	return item2->theTime - item1->theTime;
+	return static_cast<int>(item2->theTime - item1->theTime);
 }
