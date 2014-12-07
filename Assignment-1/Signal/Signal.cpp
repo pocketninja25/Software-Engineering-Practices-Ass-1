@@ -19,15 +19,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	Measurement theMeasurements[MAXMEASUREMENTS];
 	int numMeasurements = 0;								//Running count of loaded measurements
 
-#ifdef _DEBUG
-	//Use Debug folder for debug version
-	char * inFileName = "..\\Debug\\measurements.txt";		
-	char * outFileName = "..\\Debug\\measurementsout.txt";	
-#else
-	//Use Release folder for release version
-	char * inFileName = "..\\Release\\measurements.txt";	
-	char * outFileName = "..\\Release\\measurementsout.txt";
-#endif
+
+	//Set the input and output names based on being in the same folder as the executable
+	char * inFileName = ".\\measurements.txt";		
+	char * outFileName = ".\\measurementsout.txt";	
+
 
 	/*Read in measurements from file*/
 	inp.open(inFileName);
@@ -45,6 +41,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	inp.close();
 	/*End of file read-in*/
 
+	Sort(theMeasurements, numMeasurements, CompareTimeAsc);	//Sort file in ascending order based on time
+
 	//Output read-in values to screen
 	cout << "Original:" << endl;
 	for (int i = 0; i < numMeasurements; i++)
@@ -56,7 +54,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	int result;		//Code returned by filter
 
-	//Sort(theMeasurements, numMeasurements, CompareTimeAsc);	//Sort file in ascending order based on time
 
 	result = Process(theMeasurements, numMeasurements, TEXT("clip"), TEXT("76"));	//Call the filter handler function to appy the filter
 	if (result != Success)
