@@ -8,8 +8,19 @@
 
 using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+//Includes for path output
+//#include<conio.h>
+//#include<stdio.h>
+
+
+
+int _tmain(int argc, TCHAR* argv[])
 {
+	//Code for path output
+	/*char basePath[255] = "";
+	_fullpath(basePath, argv[0], sizeof(basePath));
+	cout << basePath << endl;*/
+
 	ifstream inp;											//file input stream
 	ofstream outp;											//file output stream
 	char dummy[100];
@@ -21,9 +32,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	//Set the input and output names based on being in the same folder as the executable
-	char * inFileName = ".\\measurements.txt";		
-	char * outFileName = ".\\measurementsout.txt";	
 
+	char * inFileName = "measurements.txt";		
+	char * outFileName = "measurementsout.txt";	
+
+	
 
 	/*Read in measurements from file*/
 	inp.open(inFileName);
@@ -55,7 +68,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int result;		//Code returned by filter
 
 
-	result = Process(theMeasurements, numMeasurements, TEXT("clip"), TEXT("76"));	//Call the filter handler function to appy the filter
+	result = Process(theMeasurements, numMeasurements, TEXT("clip"), TEXT("6.5"));	//Call the filter handler function to appy the filter
 	if (result != Success)
 	{
 		cout << "Filter failed with error code: " << result << endl;	//Report error code returned by process

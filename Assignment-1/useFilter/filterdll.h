@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-_declspec(DLLIMPORTOREXPORT) int filter(Measurement measurements[], int size, char* parameter);	//Prototype for filter function
+_declspec(DLLIMPORTOREXPORT) int filter(Measurement measurements[], int size, const TCHAR* parameter);	//Prototype for filter function
 
 #ifdef __cplusplus
 }	//end extern "c"

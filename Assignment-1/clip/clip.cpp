@@ -6,10 +6,9 @@
 #include "filterdll.h"
 #include <cstdlib>
 
-int filter(Measurement measurements[], int size, char* parameter)
+int filter(Measurement measurements[], int size, const TCHAR* parameter)
 {
-	//Bug in this where if the parameter > 1 character, it is chopped down to a single digit number 76 becomes 7, 4.5 becomes 4 etc...
-	double limit = atof(parameter);
+	double limit = _tstof(parameter);	//Convert TCHAR* parameter to a double
 
 	for (int i = 0; i < size; i++)
 	{
