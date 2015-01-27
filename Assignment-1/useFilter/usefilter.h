@@ -6,7 +6,7 @@
 #include <Windows.h>
 #include <stdio.h>
 
-int Process(Measurement measurements[], int size, TCHAR * filterName, TCHAR * parameter);
+int Process(Measurement measurements[], int size, char * filterName, char * parameter);
 
 void Sort(Measurement measurements[], int size, Compare compareFunction);
 

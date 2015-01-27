@@ -19,7 +19,7 @@ public:
 	double theReading;
 };
 
-typedef int (_cdecl *Filter)(Measurement*, int, TCHAR*);
+typedef int (_cdecl *Filter)(Measurement*, int, char*);
 typedef int(*Compare)(const Measurement*, const Measurement*);	//Return < 0 if p1 < p2, 0 if p1 == p2, > 0 if p1 > 0
 
 #endif

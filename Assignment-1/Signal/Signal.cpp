@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//Includes for path output
+//Includes for path output - debug tool
 //#include<conio.h>
 //#include<stdio.h>
 
@@ -16,7 +16,7 @@ using namespace std;
 
 int _tmain(int argc, TCHAR* argv[])
 {
-	//Code for path output
+	//Code for path output - debug tool
 	/*char basePath[255] = "";
 	_fullpath(basePath, argv[0], sizeof(basePath));
 	cout << basePath << endl;*/
@@ -68,7 +68,7 @@ int _tmain(int argc, TCHAR* argv[])
 	int result;		//Code returned by filter
 
 
-	result = Process(theMeasurements, numMeasurements, TEXT("clip"), TEXT("6.5"));	//Call the filter handler function to appy the filter
+	result = Process(theMeasurements, numMeasurements, "clip", "6.5");	//Call the filter handler function to appy the filter
 	if (result != Success)
 	{
 		cout << "Filter failed with error code: " << result << endl;	//Report error code returned by process

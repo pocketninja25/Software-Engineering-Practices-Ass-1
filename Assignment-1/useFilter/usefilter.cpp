@@ -2,7 +2,7 @@
 #include "usefilter.h"
 
 
-int Process(Measurement measurements[], int size, TCHAR* filterName, TCHAR* parameter)
+int Process(Measurement measurements[], int size, char* filterName, char* parameter)
 {
 	HINSTANCE hinstLib;
 	Filter FilterProc;			//Function pointer to filter function
