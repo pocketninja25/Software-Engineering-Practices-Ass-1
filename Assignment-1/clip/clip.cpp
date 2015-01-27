@@ -8,7 +8,7 @@
 
 int filter(Measurement measurements[], int size, char* parameter)
 {
-	double limit = atof(parameter);	//Convert TCHAR* parameter to a double
+	double limit = atof(parameter);	//Convert char* parameter to a double
 
 	for (int i = 0; i < size; i++)
 	{

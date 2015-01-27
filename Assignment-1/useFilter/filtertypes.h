@@ -2,7 +2,6 @@
 #define FILTERTYPES_H
 
 #include "stdafx.h"
-#include <tchar.h>
 
 
 const int Success = 0;
